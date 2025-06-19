@@ -4,7 +4,7 @@ const tableBody = document.getElementById('commentDataTableBody1');
 
 // Load existing comments
 async function loadComments() {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from('comments')
         .select('id, name, comment');
 
