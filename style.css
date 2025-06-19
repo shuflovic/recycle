@@ -19,7 +19,7 @@ nav {
   padding: 15px;
   background-color: #2e7031;
 }
-nav button {
+nav button, a {
   background-color: lightgreen;
   color: darkgreen;
   border: none;
@@ -29,7 +29,7 @@ nav button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-nav button:hover {
+nav button:hover, a:hover {
   background-color: white;
   color: #2e7031;
 }
