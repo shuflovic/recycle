@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sk-en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>From Trash to Treasure</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+
+    <aside class="sidebar">
+      <p>this section will be visible only during page development</p>
+      <section class="todo">
+        <div class="input-section">
+          <input type="text" id="TDL" placeholder="Add a new task... and press ENTER" />
+        </div>
+        <div class="todo-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th><th></th><th>Notes</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="guestDataTableBody1"></tbody>
+          </table>
+        </div>
+      </section><br>
+      <section class="comment">
+        <div class="input-section">
+          <input type="text" id="comments" placeholder="Add a new comment... and press ENTER" />
+        </div>
+        <div class="comment-table">
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Comment</th></tr>
+            </thead>
+            <tbody id="commentDataTableBody1"></tbody>
+          </table>
+        </div>
+      </section>
+    </aside>
+  </div>
+  <footer>
+    <p><a href="index.html" style="text-decoration: none; color: aliceblue;">&copy; 2025 recycledsolitair.com</a></p>
+  </footer>
+
+  <script src="to-do.js"></script>
+  <script src="supabase.js"></script>
+  <script src="comment.js"></script>
+
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(section => section.classList.remove('visible'));
+
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('visible');
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+  
+</body>
+</html>
