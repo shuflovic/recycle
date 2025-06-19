@@ -16,11 +16,21 @@ body {
   padding: 20px;
 }
 
+main section {
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+main section.visible {
+  display: block;
+}
+
 .sidebar {
   flex: 1;
   max-width: 25%;
   padding: 20px;
   box-sizing: border-box;
+  background-color: green;
 }
 
 
