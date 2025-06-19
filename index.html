@@ -7,58 +7,49 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
-<body>
-  <h1>From Trash to Treasure</h1>
-
-<nav>
-  <button onclick="showSection('about')">About Me</button>
-  <button onclick="showSection('projects')">Projects</button>
-  <button onclick="showSection('gallery')">Gallery</button>
-  <button onclick="showSection('contact')">Contact</button>
-  <button onclick="showSection('stories')">Stories</button>
-  <button onclick="showSection('diy')">DIY Zone</button>
-  <button onclick="showSection('tips')">Recycling Tips</button>
-</nav>
-
-
-  <div class="page-layout">
-    <main class="main-content">
-      <section id="about">
-        <h2>About Me</h2>
-        <p>Passionate about rescuing forgotten treasures and turning them into something new and useful.</p>
-      </section>
-
-      <section id="projects">
-        <h2>My Projects</h2>
-        <p>From broken chairs to quirky shelves—this is where the magic happens.</p>
-      </section>
-
-      <section id="gallery">
-        <h2>Gallery</h2>
-        <p>Before and after shots of my proudest upcycles.</p>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Get in touch or share your own reimagined creations with me.</p>
-      </section>
-
-      <section id="stories">
-        <h2>From Trash to Treasure</h2>
-        <p>Stories or short blurbs about how each object was saved and reimagined.</p>
-      </section>
-
-      <section id="diy">
-        <h2>DIY Zone</h2>
-        <p>Tutorials or guides for people to try recycling projects themselves.</p>
-      </section>
-
-      <section id="tips">
-        <h2>Recycling Tips</h2>
-        <p>Advice, favorite reused materials, and tips for sourcing awesome junk.</p>
-      </section>
-    </main>
-
+ <div class="page-layout">
+    <div class="left-content">
+      <h1>From Trash to Treasure</h1>
+      <nav>
+        <button onclick="showSection('about')">About Me</button>
+        <button onclick="showSection('projects')">Projects</button>
+        <button onclick="showSection('gallery')">Gallery</button>
+        <button onclick="showSection('contact')">Contact</button>
+        <button onclick="showSection('stories')">Stories</button>
+        <button onclick="showSection('diy')">DIY Zone</button>
+        <button onclick="showSection('tips')">Recycling Tips</button>
+      </nav>
+      <main class="main-content">
+        <section id="about">
+          <h2>About Me</h2>
+          <p>Passionate about rescuing forgotten treasures and turning them into something new and useful.</p>
+        </section>
+        <section id="projects">
+          <h2>My Projects</h2>
+          <p>From broken chairs to quirky shelves—this is where the magic happens.</p>
+        </section>
+        <section id="gallery">
+          <h2>Gallery</h2>
+          <p>Before and after shots of my proudest upcycles.</p>
+        </section>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Get in touch or share your own reimagined creations with me.</p>
+        </section>
+        <section id="stories">
+          <h2>From Trash to Treasure</h2>
+          <p>Stories or short blurbs about how each object was saved and reimagined.</p>
+        </section>
+        <section id="diy">
+          <h2>DIY Zone</h2>
+          <p>Tutorials or guides for people to try recycling projects themselves.</p>
+        </section>
+        <section id="tips">
+          <h2>Recycling Tips</h2>
+          <p>Advice, favorite reused materials, and tips for sourcing awesome junk.</p>
+        </section>
+      </main>
+    </div>
     <aside class="sidebar">
       <p>this section will be visible only during page development</p>
       <section class="todo">
@@ -76,7 +67,6 @@
           </table>
         </div>
       </section><br>
-
       <section class="comment">
         <div class="input-section">
           <input type="text" id="comments" placeholder="Add a new comment... and press ENTER" />
@@ -92,7 +82,6 @@
       </section>
     </aside>
   </div>
-
   <footer>
     <p><a href="index.html" style="text-decoration: none; color: aliceblue;">&copy; 2025 recycledsolitair.com</a></p>
   </footer>
