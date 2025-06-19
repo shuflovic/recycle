@@ -3,7 +3,7 @@ let articles = [];
   // Load articles from Supabase
   async function loadArticlesFromDB() {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await supabaseClient
         .from('articles')
         .select('*')
         .order('created_at', { ascending: false });
@@ -119,7 +119,7 @@ let articles = [];
     
     try {
       // Save to Supabase
-      const { data, error } = await supabase
+      const { data, error } = await supabaseClient
         .from('articles')
         .insert([
           {
