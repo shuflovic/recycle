@@ -1,67 +1,106 @@
+/* Basic reset and layout */
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
   background-color: darkgreen;
   color: lightgreen;
   margin: 0;
-  font-family: Arial, sans-serif;
-    }
-
-.page-layout {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  background-color: #2e7031;
+}
+
+nav button {
+  background-color: lightgreen;
+  color: darkgreen;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+  background-color: white;
+  color: #2e7031;
+}
+
+/* Page layout */
+.page-layout {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 20px;
+}
+
+/* Main content takes 75% */
 .main-content {
   flex: 3;
   padding: 20px;
 }
 
-main section {
-  display: none;
-  transition: opacity 0.3s ease;
-}
-
-main section.visible {
-  display: block;
-}
-
+/* Sidebar takes 25% */
 .sidebar {
   flex: 1;
   max-width: 25%;
   padding: 20px;
+  background-color: #e8f5e9;
   box-sizing: border-box;
-  background-color: green;
+  border-left: 2px solid #c8e6c9;
 }
 
+/* Hide content sections by default */
+main section {
+  display: none;
+  margin-bottom: 30px;
+}
 
-    nav {
-      background-color: darkgreen;
-      padding: 10px 0;
-    }
+/* Show when triggered */
+main section.visible {
+  display: block;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-    }
+/* Tables in To-Do and Comments */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
 
-    nav li {
-      margin: 0 20px;
-    }
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
 
-    nav a {
-      text-decoration: none;
-      color: lightgreen;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+th {
+  background-color: #a5d6a7;
+  text-align: left;
+}
 
-    nav a:hover {
-      color: white;
-    }
+.input-section input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
 
-    section {
-      padding: 40px;
-    }
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: darkgreen;
+  color: white;
+  margin-top: 40px;
+}
