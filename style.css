@@ -66,6 +66,7 @@ nav button:hover, a:hover {
   flex-direction: column;
 }
 .main-content {
+  background-color: #90EE90;
   flex: 1;
   padding: 20px;
 }
