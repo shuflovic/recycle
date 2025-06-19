@@ -1,111 +1,104 @@
 <!DOCTYPE html>
 <html lang="sk-en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From Trash to Treasure</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>From Trash to Treasure</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
-    
-<main>
-        
-<section class="comment">
-    <div class="container">
+  <h1>From Trash to Treasure</h1>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#diy">DIY Zone</a></li>
+      <li><a href="#tips">Recycling Tips</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-layout">
+    <main class="main-content">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>Passionate about rescuing forgotten treasures and turning them into something new and useful.</p>
+      </section>
+
+      <section id="projects">
+        <h2>My Projects</h2>
+        <p>From broken chairs to quirky shelves—this is where the magic happens.</p>
+      </section>
+
+      <section id="gallery">
+        <h2>Gallery</h2>
+        <p>Before and after shots of my proudest upcycles.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Get in touch or share your own reimagined creations with me.</p>
+      </section>
+
+      <section id="stories">
+        <h2>From Trash to Treasure</h2>
+        <p>Stories or short blurbs about how each object was saved and reimagined.</p>
+      </section>
+
+      <section id="diy">
+        <h2>DIY Zone</h2>
+        <p>Tutorials or guides for people to try recycling projects themselves.</p>
+      </section>
+
+      <section id="tips">
+        <h2>Recycling Tips</h2>
+        <p>Advice, favorite reused materials, and tips for sourcing awesome junk.</p>
+      </section>
+    </main>
+
+    <aside class="sidebar">
+      <section class="todo">
         <div class="input-section">
-            <input type="text" id="TDL" placeholder="Add a new task... and press ENTER">
+          <input type="text" id="TDL" placeholder="Add a new task... and press ENTER" />
         </div>
         <div class="todo-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Task</th>
-                        <th></th>
-                        <th>Notes</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="guestDataTableBody1">
-                </tbody>
-            </table>
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th><th></th><th>Notes</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="guestDataTableBody1"></tbody>
+          </table>
         </div>
-    </div>
- </section><br>
+      </section>
 
-<section class="comment">
-    <div class="container">
+      <section class="comment">
         <div class="input-section">
-            <input type="text" id="comments" placeholder="Add a new comment... and press ENTER">
+          <input type="text" id="comments" placeholder="Add a new comment... and press ENTER" />
         </div>
         <div class="comment-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>name</th>
-
-                        <th>comment</th>
-                    </tr>
-                </thead>
-                <tbody id="commentDataTableBody1">
-                </tbody>
-            </table>
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Comment</th></tr>
+            </thead>
+            <tbody id="commentDataTableBody1"></tbody>
+          </table>
         </div>
-    </div>
- </section><br><hr>
+      </section>
+    </aside>
+  </div>
 
- </main>
+  <footer>
+    <p><a href="index.html" style="text-decoration: none; color: aliceblue;">&copy; 2025 recycledsolitair.com</a></p>
+  </footer>
 
-<h1>From Trash to Treasure</h1>
-    
-<nav>
-  <ul>
-    <li><a href="#about">About Me</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<main>
-    
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Passionate about rescuing forgotten treasures and turning them into something new and useful.</p>
-  </section>
-
-  <section id="projects">
-    <h2>My Projects</h2>
-    <p>From broken chairs to quirky shelves—this is where the magic happens.</p>
-  </section>
-
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <p>Before and after shots of my proudest upcycles.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Get in touch or share your own reimagined creations with me.</p>
-  </section>
-
-<p>“From Trash to Treasure” — Stories or short blurbs about how each object was saved and reimagined.<br>
-
-DIY Zone — Tutorials or guides for people to try recycling projects themselves.<br>
-
-Recycling Tips — A spot for practical advice, your favorite materials to reuse, or tips for sourcing items.</p><br><hr>
-    
-<footer>
-        <p><a href="index.html" style="text-decoration: none; color: aliceblue;" >&copy; 2025 recycledsolitair.com</a> </p>
-</footer>
-
-       
-
-<script src="to-do.js"></script>    
-<script src="supabase.js"></script>
-<script src="comment.js"></script>
-    
-
-
+  <script src="to-do.js"></script>
+  <script src="supabase.js"></script>
+  <script src="comment.js"></script>
 </body>
 </html>
