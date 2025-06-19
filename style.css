@@ -18,6 +18,11 @@ body {
   margin-top: 0;
   margin-bottom: 10px;
 }
+
+.article h3:hover {
+  cursor: pointer;
+}
+
 .article p {
   line-height: 1.6;
   margin-bottom: 0;
