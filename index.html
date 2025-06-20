@@ -13,6 +13,7 @@
       <h4>..from trash to treasure..</h4>
       
       <nav>
+        <button onclick="showSection('articles')">Home</button>
         <button onclick="showSection('about')">About Me</button>
         <button onclick="showSection('projects')">Projects</button>
         <button onclick="showSection('gallery')">Gallery</button>
@@ -85,16 +86,15 @@
   
 
 <script>
-  function showSection(id) {
-    const sections = document.querySelectorAll('main section');
-    sections.forEach(section => section.classList.remove('visible'));
-
-    const target = document.getElementById(id);
-    if (target) {
-      target.classList.add('visible');
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+function showSection(id) {
+  const sections = document.querySelectorAll('main section');
+  sections.forEach(section => section.classList.remove('visible'));
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.add('visible');
+    target.scrollIntoView({ behavior: 'smooth' });
   }
+}
 </script>
 
   
