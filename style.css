@@ -72,6 +72,7 @@ nav button:hover, a:hover {
 }
 .main-content {
   background-color: #023020;
+  color: #32CD32;
   flex: 1;
   padding: 20px;
 }
