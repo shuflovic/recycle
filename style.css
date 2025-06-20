@@ -12,6 +12,25 @@ body {
   padding: 20px;
 }
 
+.back-button-fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  font-weight: bold;
+}
+
+.back-button-fixed:hover {
+  background-color: #45a049;
+}
+
 /* Make articles responsive */
 @media (max-width: 1024px) {
   .articles-container {
