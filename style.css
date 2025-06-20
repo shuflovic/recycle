@@ -19,6 +19,7 @@ body {
   background-color: white;
   padding: 15px;
   color: black;
+  border-radius: 8px;
 }
 
 .article {
