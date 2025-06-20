@@ -39,9 +39,6 @@ body {
   margin-bottom: 0;
   color: #555;
 }
-.btn {
-  background-color: #32CD32;
-}
 
 h1, h4 {
   text-align: center;
@@ -61,7 +58,7 @@ nav {
 /* Updated navigation buttons with better contrast */
 nav button, .article button, a {
   background-color: #2e7031; /* Darker green background */
-  color: #90ee90; /* Light green text for readability */
+  color: white/*#90ee90*/; /* Light green text for readability */
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
