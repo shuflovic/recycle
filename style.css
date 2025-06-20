@@ -2,9 +2,9 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #023020;
-  color: #333;
+  color: white;
 }
-/* Container for articles */
+
 .articles-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -136,7 +136,7 @@ nav button:hover, .article button:hover, a:hover {
 }
 .main-content {
   background-color: #023020;
-  color: #32CD32;
+  color: white;
   flex: 1;
   padding: 20px;
 }
