@@ -15,6 +15,11 @@ body {
   cursor: pointer;
 }
 
+#article-detail-content {
+  background-color: white;
+  padding: 15px;
+}
+
 .article {
   background-color: white;
   padding: 20px;
