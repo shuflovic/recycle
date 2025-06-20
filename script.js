@@ -89,10 +89,11 @@ let articles = [];
     articles.forEach(article => {
       const articleDiv = document.createElement('div');
       articleDiv.className = 'article';
-      articleDiv.innerHTML = `
-        <h3 onclick="showArticleDetail(${article.id})">${article.title}</h3>
-        <p>${article.content}</p>
-      `;
+articleDiv.innerHTML = `
+  <h3>${article.title}</h3>
+  <p>${article.content}</p>
+  <button onclick="showArticleDetail(${article.id})">Read more</button>
+`;
       container.appendChild(articleDiv);
     });
   }
