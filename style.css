@@ -14,7 +14,7 @@ body {
 
 .back-button-fixed {
   position: fixed;
-  top: 20px;
+  top: 200px;
   right: 20px;
   z-index: 1000;
   background-color: #4caf50;
