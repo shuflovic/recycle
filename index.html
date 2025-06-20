@@ -16,7 +16,7 @@
       
       <nav>
         <button onclick="showSection('articles')">Articles</button>
-        <button onclick="showSection('about')">About Me</button>
+        <button data-section="about" onclick="showSection('about')">About Me</button>
         <button onclick="showSection('projects')">Projects</button>
         <button onclick="showSection('gallery')">Gallery</button>
         <button onclick="showSection('stories')">Stories</button>
@@ -115,9 +115,9 @@ function showSection(id) {
   }
   
   // Add active class to clicked button
-  const activeButton = Array.from(navButtons).find(button => 
-    button.textContent.toLowerCase().includes(getButtonTextForSection(id))
-  );
+const activeButton = Array.from(navButtons).find(button =>
+  button.dataset.section === id
+);
   if (activeButton) {
     activeButton.classList.add('active');
   }
