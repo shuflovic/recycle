@@ -12,6 +12,13 @@ body {
   padding: 20px;
 }
 
+nav button.active {
+  background-color: #32CD32; /* Bright green for active */
+  color: #023020; /* Dark green text */
+  transform: scale(1.05); /* Slightly larger */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
 .back-button-fixed {
   position: fixed;
   top: 200px;
