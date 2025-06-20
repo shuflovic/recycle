@@ -88,12 +88,43 @@
 <script>
 function showSection(id) {
   const sections = document.querySelectorAll('main section');
+  const navButtons = document.querySelectorAll('nav button');
+  
+  // Remove active class from all buttons
+  navButtons.forEach(button => button.classList.remove('active'));
+  
+  // Hide all sections
   sections.forEach(section => section.classList.remove('visible'));
+  
+  // Show target section
   const target = document.getElementById(id);
   if (target) {
     target.classList.add('visible');
     target.scrollIntoView({ behavior: 'smooth' });
   }
+  
+  // Add active class to clicked button
+  const activeButton = Array.from(navButtons).find(button => 
+    button.textContent.toLowerCase().includes(getButtonTextForSection(id))
+  );
+  if (activeButton) {
+    activeButton.classList.add('active');
+  }
+}
+
+// Helper function to match section ID with button text
+function getButtonTextForSection(sectionId) {
+  const mapping = {
+    'articles': 'home',
+    'about': 'about',
+    'projects': 'projects',
+    'gallery': 'gallery',
+    'stories': 'stories',
+    'diy': 'diy',
+    'contact': 'contact',
+    'tips': 'tips'
+  };
+  return mapping[sectionId] || sectionId;
 }
 </script>
 
