@@ -4,6 +4,26 @@ body {
   background-color: #023020;
   color: #333;
 }
+/* Container for articles */
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Make articles responsive */
+@media (max-width: 1024px) {
+  .articles-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .articles-container {
+    grid-template-columns: 1fr;
+  }
+}
 
 .article {
   background-color: white;
