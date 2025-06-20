@@ -18,6 +18,7 @@ body {
 #article-detail-content {
   background-color: white;
   padding: 15px;
+  color: black;
 }
 
 .article {
@@ -34,10 +35,6 @@ body {
   margin-bottom: 10px;
 }
 
-.article h3:hover {
-  cursor: pointer;
-}
-
 .article p {
   line-height: 1.6;
   margin-bottom: 0;
@@ -46,6 +43,7 @@ body {
 .btn {
   background-color: #32CD32;
 }
+
 h1 {
   text-align: center;
   padding: 20px;
