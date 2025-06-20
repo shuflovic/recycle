@@ -48,7 +48,7 @@ nav button.active {
 @media (max-width: 768px) {
   .articles-container {
     grid-template-columns: 1fr;
-  };
+  }
   h1 {
     font-size: 0.95em;
   }
