@@ -59,7 +59,7 @@ nav {
   background-color: #1a4a2e; /* Darker green, closer to body color */
 }
 /* Updated navigation buttons with better contrast */
-nav button, a {
+nav button, .article button, a {
   background-color: #2e7031; /* Darker green background */
   color: #90ee90; /* Light green text for readability */
   border: none;
@@ -69,7 +69,7 @@ nav button, a {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-nav button:hover, a:hover {
+nav button:hover, .article button:hover, a:hover {
   background-color: #32CD32; /* Bright green on hover */
   color: #023020; /* Dark green text on hover */
 }
