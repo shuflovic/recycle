@@ -5,14 +5,20 @@ body {
   color: #333;
 }
 
+.article {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
 .article button {
-  margin-top: 8px;
-  padding: 6px 16px;
-  background-color: #2ecc40;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 10px;
 }
 
 #article-detail-content {
@@ -22,14 +28,6 @@ body {
   border-radius: 8px;
 }
 
-.article {
-  background-color: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border-left: 4px solid #4caf50;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
 .article h3 {
   color: #2e7031;
   margin-top: 0;
