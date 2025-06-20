@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
+
+  <body>
  <div class="page-layout">
     <div class="left-content">
       <h1>R E C Y C L E D S O L I T A I R</h1>
@@ -100,7 +102,16 @@ function showSection(id) {
   const target = document.getElementById(id);
   if (target) {
     target.classList.add('visible');
-    target.scrollIntoView({ behavior: 'smooth' });
+    
+    // Scroll with offset for sticky nav
+    setTimeout(() => {
+      const navHeight = document.querySelector('nav').offsetHeight;
+      const targetPosition = target.offsetTop - navHeight - 10; // 10px extra padding
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }, 100);
   }
   
   // Add active class to clicked button
@@ -110,21 +121,6 @@ function showSection(id) {
   if (activeButton) {
     activeButton.classList.add('active');
   }
-}
-
-// Helper function to match section ID with button text
-function getButtonTextForSection(sectionId) {
-  const mapping = {
-    'articles': 'home',
-    'about': 'about',
-    'projects': 'projects',
-    'gallery': 'gallery',
-    'stories': 'stories',
-    'diy': 'diy',
-    'contact': 'contact',
-    'tips': 'tips'
-  };
-  return mapping[sectionId] || sectionId;
 }
 </script>
 
