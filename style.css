@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
 background-image: url('https://rigsljqkzlnemypqjlbk.supabase.co/storage/v1/object/public/recycle//background.png');
 background-size: cover;
-background-repeat: no-repeat;
+/*background-repeat: no-repeat;*/
 }
 
 .articles-container {
