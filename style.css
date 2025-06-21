@@ -349,6 +349,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   background-color: white;
+    max-width: 600px;
 }
 th, td {
   border: 1px solid #ccc;
@@ -359,7 +360,7 @@ th {
   text-align: left;
 }
 .input-section input {
-  width: 100%;
+  max-width: 600px;
   padding: 8px;
   margin-bottom: 10px;
   box-sizing: border-box;
