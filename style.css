@@ -169,7 +169,7 @@ background-size: cover;
 img {
   height: 300px;
 }
-.add-article-form, add-website {
+.add-article-form, .add-website {
   margin-top: 30px;
   padding: 20px;
   background-color: #f0f8f0;
