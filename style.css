@@ -162,6 +162,7 @@ h1, h4 {
 }
 
 nav {
+  background-color: #FFA74F;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
