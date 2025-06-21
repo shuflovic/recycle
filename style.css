@@ -169,7 +169,7 @@ background-size: cover;
 img {
   height: 300px;
 }
-.add-article-form {
+.add-article-form, add-website {
   margin-top: 30px;
   padding: 20px;
   background-color: #f0f8f0;
@@ -177,7 +177,7 @@ img {
   max-width: 600px;
 }
 
-.add-article-form input[type="text"],
+.add-article-form input, .add-website input[type="text"],
 .add-article-form textarea,
 .add-article-form input[type="file"] {
   width: 100%;
@@ -186,7 +186,7 @@ img {
   box-sizing: border-box;
 }
 
-.add-article-form button {
+.add-article-form button, .add-website button {
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
