@@ -52,7 +52,7 @@ function displayWebsites() {
     const websiteDiv = document.createElement('div');
     websiteDiv.className = 'website';
 
-    websiteiv.innerHTML = `
+    websiteDiv.innerHTML = `
   
     <div class="inspiration-item">
       <div class="preview-frame">
