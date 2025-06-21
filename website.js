@@ -33,11 +33,11 @@ websites = data.map(website => ({
     websites = [
       {
         id: 1,
-        title: "https://streetartutopia.com/2025/06/18/8-street-art-repairs-that-brought-broken-places-back-to-life/",
+        title: "https://streetartutopia.com/2025/06/18/8-street-art-repairs-that-brought-broken-places-back-to-life",
       },
       {
         id: 2,
-        title: "https://streetartutopia.com/2025/06/18/8-street-art-repairs-that-brought-broken-places-back-to-life/"
+        title: "https://streetartutopia.com/2025/06/18/8-street-art-repairs-that-brought-broken-places-back-to-life"
       }
     ];
     displayWebsites();
