@@ -1,9 +1,22 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+margin: 0;
+font-family: Arial, sans-serif;
 background-image: url('https://rigsljqkzlnemypqjlbk.supabase.co/storage/v1/object/public/recycle//background.png');
 background-size: cover;
-/*background-repeat: no-repeat;*/
+}
+
+.recycled-text {
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #4a5d3a;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 0.9;
+    text-shadow: 
+        4px 4px 4px #000000,
+        4px 4px 4px #2a2a2a,
+        4px 4px 4px rgba(0,0,0,0.3);
 }
 
 .articles-container {
@@ -125,6 +138,7 @@ h1, h4 {
   color: lightgreen;
   margin: 0;
 }
+
 nav {
   display: flex;
   justify-content: center;
@@ -163,7 +177,6 @@ nav button:hover, .article button:hover, a:hover {
   flex-direction: column;
 }
 .main-content {
-  color: white;
   flex: 1;
   padding: 20px;
 }
