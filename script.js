@@ -105,13 +105,17 @@ function displayArticles() {
 
 
   // Function to show article detail
-  function showArticleDetail(articleId) {
-    const article = articles.find(a => a.id === articleId);
-    if (article) {
-      document.getElementById('article-detail-content').innerHTML = article.fullContent;
-      showSection('article-detail');
-    }
+function showArticleDetail(articleId) {
+  const article = articles.find(a => a.id === articleId);
+  if (article) {
+    const html = `
+      ${article.imageUrl ? `<img src="${article.imageUrl}" alt="Article Image" style="max-width:100%; border-radius: 10px; margin-bottom: 20px;">` : ''}
+      ${article.fullContent}
+    `;
+    document.getElementById('article-detail-content').innerHTML = html;
+    showSection('article-detail');
   }
+}
 
   // Function to add new article
   async function addNewArticle() {
