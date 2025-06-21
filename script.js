@@ -118,7 +118,7 @@ function showArticleDetail(articleId) {
 }
 
   // Function to add new article
-  async function addNewArticle() {
+ async function addNewArticle() {
   const title = document.getElementById('new-article-title').value.trim();
   const content = document.getElementById('new-article-content').value.trim();
   const fullContent = document.getElementById('new-article-full').value.trim();
@@ -131,12 +131,13 @@ function showArticleDetail(articleId) {
 
   let imageUrl = '';
 
+  // Upload image if selected
   if (imageFile) {
     const fileExt = imageFile.name.split('.').pop();
     const fileName = `${Date.now()}.${fileExt}`;
     const filePath = `${fileName}`;
 
-    const { data: uploadData, error: uploadError } = await supabaseClient
+    const { error: uploadError } = await supabaseClient
       .storage
       .from('recycle')
       .upload(filePath, imageFile, {
@@ -150,7 +151,6 @@ function showArticleDetail(articleId) {
       return;
     }
 
-    // Get public URL
     const { data: publicUrlData } = supabaseClient
       .storage
       .from('recycle')
@@ -159,48 +159,45 @@ function showArticleDetail(articleId) {
     imageUrl = publicUrlData.publicUrl;
   }
 
-  // Now insert the article including imageUrl if available
-  try {
-    const { data, error } = await supabaseClient
-      .from('articles')
-      .insert([
-        {
-          title: title,
-          content: content,
-          full_content: fullContent || `<h2>${title}</h2><p>${content}</p>`,
-          image_url: imageUrl // optional, if your table has this column
-        }
-      ])
-      .select();
+  // Insert article into DB
+  const { data, error } = await supabaseClient
+    .from('articles')
+    .insert([
+      {
+        title,
+        content,
+        full_content: fullContent || `<h2>${title}</h2><p>${content}</p>`,
+        image_url: imageUrl
+      }
+    ])
+    .select()
+    .single(); // helps avoid [0] and undefined handling
 
-    if (error) {
-      console.error('Supabase insert error:', error.message, error.details, error.hint);
-      alert('Error saving article. Check console for details.');
-      return;
-    }
-
-    const newArticle = {
-      id: data[0].id,
-      title: data[0].title,
-      content: data[0].content,
-      fullContent: data[0].full_content,
-      imageUrl: data[0].image_url
-    };
-
-    articles.unshift(newArticle);
-    displayArticles();
-
-    // Clear form
-    document.getElementById('new-article-title').value = '';
-    document.getElementById('new-article-content').value = '';
-    document.getElementById('new-article-full').value = '';
-    document.getElementById('article-image').value = '';
-
-    alert('Article with image saved successfully!');
-  } catch (err) {
-    console.error('Database error:', err);
-    alert('Unexpected error. Check console for details.');
+  if (error || !data) {
+    console.error('Supabase insert error:', error?.message, error?.details);
+    alert('Error saving article. Check console for details.');
+    return;
   }
+
+  // All good — add to UI
+  const newArticle = {
+    id: data.id,
+    title: data.title,
+    content: data.content,
+    fullContent: data.full_content,
+    imageUrl: data.image_url
+  };
+
+  articles.unshift(newArticle);
+  displayArticles();
+
+  // Clear form
+  document.getElementById('new-article-title').value = '';
+  document.getElementById('new-article-content').value = '';
+  document.getElementById('new-article-full').value = '';
+  document.getElementById('article-image').value = '';
+
+  alert('Article with image saved successfully!');
 }
 
   // Load articles when page loads
