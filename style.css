@@ -84,7 +84,7 @@ background-size: cover;
 }
 
 #stories {
-  ackground-color: #FFA74F;
+  background-color: #FFD7B3;
   padding: 40px 20px;
 }
 
@@ -164,6 +164,7 @@ background-size: cover;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
+background-color: #FFD7B3;
 }
 
 img {
@@ -238,7 +239,7 @@ nav button.active {
 }
 
 .article {
-  background-color: white;
+  background-color: #FFD7B3;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
