@@ -8,7 +8,7 @@ background-size: cover;
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 
 .recycled-text {
-    font-family: Impact, cursive;
+    font-family: cursive;
     font-size: 5rem;
     color: #445238;
     text-transform: uppercase;
@@ -32,7 +32,7 @@ background-size: cover;
 }
 
 img {
-  height: 250px;
+  height: 300px;
 }
 .add-article-form {
   margin-top: 30px;
