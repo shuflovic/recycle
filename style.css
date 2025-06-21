@@ -164,7 +164,6 @@ background-size: cover;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
-background-color: #FFD7B3;
 }
 
 img {
@@ -255,7 +254,7 @@ nav button.active {
 }
 
 #article-detail-content {
-  background-color: white;
+  background-color: #FFD7B3;
   padding: 15px;
   color: black;
   border-radius: 8px;
