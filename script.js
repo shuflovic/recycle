@@ -15,12 +15,14 @@ let articles = [];
         return;
       }
       
-      articles = data.map(article => ({
-        id: article.id,
-        title: article.title,
-        content: article.content,
-        fullContent: article.full_content || `<h2>${article.title}</h2><p>${article.content}</p>`
-      }));
+articles = data.map(article => ({
+  id: article.id,
+  title: article.title,
+  content: article.content,
+  fullContent: article.full_content || `<h2>${article.title}</h2><p>${article.content}</p>`,
+  imageUrl: article.image_url || ''
+}));
+
       
       displayArticles();
     } catch (err) {
@@ -82,21 +84,25 @@ let articles = [];
   }
 
   // Function to display articles
-  function displayArticles() {
-    const container = document.getElementById('articles-container');
-    container.innerHTML = '';
-    
-    articles.forEach(article => {
-      const articleDiv = document.createElement('div');
-      articleDiv.className = 'article';
-articleDiv.innerHTML = `
-  <h3>${article.title}</h3>
-  <p>${article.content}</p>
-  <button onclick="showArticleDetail(${article.id})">Read more</button>
-`;
-      container.appendChild(articleDiv);
-    });
-  }
+function displayArticles() {
+  const container = document.getElementById('articles-container');
+  container.innerHTML = '';
+
+  articles.forEach(article => {
+    const articleDiv = document.createElement('div');
+    articleDiv.className = 'article';
+
+    articleDiv.innerHTML = `
+      <h3>${article.title}</h3>
+      <p>${article.content}</p>
+      ${article.imageUrl ? `<img src="${article.imageUrl}" alt="Article Image" style="max-width:100%; border-radius: 10px; margin-top: 10px;">` : ''}
+      <button onclick="showArticleDetail(${article.id})">Read more</button>
+    `;
+
+    container.appendChild(articleDiv);
+  });
+}
+
 
   // Function to show article detail
   function showArticleDetail(articleId) {
@@ -109,57 +115,89 @@ articleDiv.innerHTML = `
 
   // Function to add new article
   async function addNewArticle() {
-    const title = document.getElementById('new-article-title').value.trim();
-    const content = document.getElementById('new-article-content').value.trim();
-    const fullContent = document.getElementById('new-article-full').value.trim();
-    
-    if (!title || !content) {
-      alert('Please fill in at least the title and preview content.');
+  const title = document.getElementById('new-article-title').value.trim();
+  const content = document.getElementById('new-article-content').value.trim();
+  const fullContent = document.getElementById('new-article-full').value.trim();
+  const imageFile = document.getElementById('article-image').files[0];
+
+  if (!title || !content) {
+    alert('Please fill in at least the title and preview content.');
+    return;
+  }
+
+  let imageUrl = '';
+
+  if (imageFile) {
+    const fileExt = imageFile.name.split('.').pop();
+    const fileName = `${Date.now()}.${fileExt}`;
+    const filePath = `${fileName}`;
+
+    const { data: uploadData, error: uploadError } = await supabaseClient
+      .storage
+      .from('recycle')
+      .upload(filePath, imageFile, {
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (uploadError) {
+      console.error('Image upload failed:', uploadError.message);
+      alert('Image upload failed. Try a different file.');
       return;
     }
-    
-    try {
-      // Save to Supabase
-      const { data, error } = await supabaseClient
-        .from('articles')
-        .insert([
-          {
-            title: title,
-            content: content,
-            full_content: fullContent || `<h2>${title}</h2><p>${content}</p>`
-          }
-        ])
-        .select();
-      
-      if (error) {
-        console.error('Error saving article:', error);
-        alert('Error saving article. Please try again.');
-        return;
-      }
-      
-      // Add to local array
-      const newArticle = {
-        id: data[0].id,
-        title: data[0].title,
-        content: data[0].content,
-        fullContent: data[0].full_content
-      };
-      
-      articles.unshift(newArticle); // Add to beginning of array
-      displayArticles();
-      
-      // Clear form
-      document.getElementById('new-article-title').value = '';
-      document.getElementById('new-article-content').value = '';
-      document.getElementById('new-article-full').value = '';
-      
-      alert('Article saved successfully!');
-      
-    } catch (err) {
-      console.error('Database error:', err);
-      alert('Error connecting to database. Please try again.');
-    }
+
+    // Get public URL
+    const { data: publicUrlData } = supabaseClient
+      .storage
+      .from('recycle')
+      .getPublicUrl(filePath);
+
+    imageUrl = publicUrlData.publicUrl;
   }
+
+  // Now insert the article including imageUrl if available
+  try {
+    const { data, error } = await supabaseClient
+      .from('articles')
+      .insert([
+        {
+          title: title,
+          content: content,
+          full_content: fullContent || `<h2>${title}</h2><p>${content}</p>`,
+          image_url: imageUrl // optional, if your table has this column
+        }
+      ])
+      .select();
+
+    if (error) {
+      console.error('Supabase insert error:', error.message, error.details, error.hint);
+      alert('Error saving article. Check console for details.');
+      return;
+    }
+
+    const newArticle = {
+      id: data[0].id,
+      title: data[0].title,
+      content: data[0].content,
+      fullContent: data[0].full_content,
+      imageUrl: data[0].image_url
+    };
+
+    articles.unshift(newArticle);
+    displayArticles();
+
+    // Clear form
+    document.getElementById('new-article-title').value = '';
+    document.getElementById('new-article-content').value = '';
+    document.getElementById('new-article-full').value = '';
+    document.getElementById('article-image').value = '';
+
+    alert('Article with image saved successfully!');
+  } catch (err) {
+    console.error('Database error:', err);
+    alert('Unexpected error. Check console for details.');
+  }
+}
 
   // Load articles when page loads
   document.addEventListener('DOMContentLoaded', loadArticlesFromDB);
