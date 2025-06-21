@@ -15,7 +15,7 @@ background-size: cover;
     transform: rotate(-0.8deg);
     line-height: 0.85;
     letter-spacing: 0.08em;
-    
+    text-align: center;
     /* Thin border with slight shadow */
     -webkit-text-stroke: 1.5px #000000;
     text-stroke: 1.5px #000000;
