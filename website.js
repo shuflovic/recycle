@@ -73,8 +73,8 @@ function displayWebsites() {
   const title = document.getElementById('new-website-title').value.trim();
 
 
-  if (!title || !content) {
-    alert('Please fill in at least the title and preview content.');
+  if (!title) {
+    alert('Please fill in at least the title.');
     return;
   }
 
