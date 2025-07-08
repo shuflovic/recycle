@@ -225,7 +225,7 @@ nav button.active {
 
 /* Make articles responsive */
 @media (max-width: 1024px) {
-  .articles-container {
+  .articles-container, .recepty-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
