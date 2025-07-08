@@ -1,8 +1,4 @@
-// Assumes an array named 'recepty' exists, for example:
- // let recepty = [
- //   { id: 1, title: 'Recept 1', content: 'Preview...', fullContent: 'Full content for recept 1' },
- //   { id: 2, title: 'Recept 2', content: 'Preview...', fullContent: 'Full content for recept 2' }
- // ];
+let recepty = [];
 
  // Function to display all recipes
  function displayRecepty() {
