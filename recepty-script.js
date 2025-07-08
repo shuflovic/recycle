@@ -190,3 +190,7 @@ async function addNewRecept() {
 
     alert('Recipe saved successfully!');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadReceptyFromDB();
+});
