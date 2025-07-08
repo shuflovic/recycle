@@ -188,7 +188,7 @@ img {
   box-sizing: border-box;
 }
 
-.add-article-form button, .add-recept-form button .add-website button {
+.add-article-form button, .add-recept-form button, .add-website button {
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
