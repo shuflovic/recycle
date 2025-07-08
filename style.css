@@ -161,7 +161,7 @@ background-size: cover;
     filter: contrast(1.3) saturate(0.8);
 }
 
-.articles-container {
+.articles-container, .recepty-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -171,7 +171,7 @@ background-size: cover;
 img {
   height: 300px;
 }
-.add-article-form, .add-website {
+.add-article-form, .add-website, .add-recept-form {
   margin-top: 30px;
   padding: 20px;
   background-color: #f0f8f0;
@@ -181,14 +181,14 @@ img {
 
 .add-article-form input, .add-website input[type="text"],
 .add-article-form textarea,
-.add-article-form input[type="file"] {
+.add-article-form input[type="file"], .add-recept-form input, .add-recept-form textarea, .add-recept-form input[type="file"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
 }
 
-.add-article-form button, .add-website button {
+.add-article-form button, .add-recept-form button .add-website button {
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
@@ -239,7 +239,7 @@ nav button.active {
   }
 }
 
-.article {
+.article, .recept {
     background-color: #FFFCF5; /* A slightly off-white for a vintage feel */
     padding: 15px 15px 70px 15px; /* Top, Sides, BOTTOM (larger for text) */
     border-radius: 4px;
@@ -252,14 +252,14 @@ nav button.active {
 }
 
 /* Add a cool hover effect */
-.article:hover {
+.article:hover, .recept:hover {
     transform: scale(1.05) rotate(2deg); /* Straighten out and grow on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     z-index: 10; /* Bring the hovered polaroid to the front */
 }
 
 /* Style the image part of the polaroid */
-.article img {
+.article img, .recept img {
     width: 100%;
     height: 250px; /* Give images a consistent height */
     object-fit: cover; /* Prevents images from stretching */
@@ -268,7 +268,7 @@ nav button.active {
 }
 
 /* Style the title like a handwritten caption */
-.article h3 {
+.article h3, .recept h3 {
     font-family: 'Permanent Marker', cursive;
     font-size: 1.2rem;
     color: #222;
@@ -277,11 +277,11 @@ nav button.active {
 }
 
 /* Hide the paragraph text or style it smaller if you want */
-.article p {
+.article p, .recept p {
     display: none; /* A lot of text doesn't fit the polaroid style, so we hide it */
 }
 
-.article button {
+.article button, .recept button {
     position: absolute; /* Hide the button or reposition it if needed */
     bottom: 10px;
     left: 50%;
@@ -290,11 +290,11 @@ nav button.active {
     transition: opacity 0.3s ease;
 }
 
-.article:hover button {
+.article:hover button, .recept:hover button {
     opacity: 1; /* Show the button on hover */
 }
 
-#article-detail-content {
+#article-detail-content, #recept-detail-content {
   background-color: #FFD7B3;
   padding: 15px;
   color: black;
@@ -320,7 +320,7 @@ nav {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Optional shadow for depth */
 }
 
-nav button, .article button, a {
+nav button, .article button, .recept button, a {
   background-color: #2e7031; /* Darker green background */
   color: white/*#90ee90*/; /* Light green text for readability */
   border: none;
@@ -330,7 +330,7 @@ nav button, .article button, a {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-nav button:hover, .article button:hover, a:hover {
+nav button:hover, .article button:hover, .recept button:hover, a:hover {
   background-color: #32CD32; /* Bright green on hover */
   color: #023020; /* Dark green text on hover */
 }
