@@ -54,12 +54,24 @@
   <div id="articles-container" style="display: none"></div>
 </div>
 <br><br>
+      
 <div class="add-website">
   <h3>Add New Website</h3>
   <input type="text" id="new-website-title" placeholder="just paste here html address">
   <button onclick="addNewWebsite()">Add Website</button>
   <div id="website-container" style="display: none"></div>
+</div><br><br>
+
+  <div class="add-recept-form">
+  <h3>Pridaj nový recept</h3>
+  <input type="text" id="new-recept-title" placeholder="názov receptu">
+  <textarea id="new-recept-content" placeholder="recept iba popis"></textarea>
+  <textarea id="new-recept-full" placeholder="Full recept content (HTML allowed)"></textarea>
+  <input type="file" id="recept-image" accept="image/*">
+  <button onclick="addNewRecept()">Pridaj Recept</button>
+  <div id="recepty-container" style="display: none"></div>
 </div>
+<br><br>
 
 </aside>
   
@@ -72,6 +84,8 @@
   <script src="comment.js"></script>
   <script src="script.js"></script>
   <script src="website.js"></script>
+  <script src="recepty.js"></script>
+  
   
 </body>
 </html>
