@@ -231,7 +231,7 @@ nav button.active {
 }
 
 @media (max-width: 768px) {
-  .articles-container {
+  .articles-container, .recepty-container {
     grid-template-columns: 1fr;
   }
   h1 {
