@@ -1,4 +1,4 @@
-let recepty = [];
+//let recepty = [];
 
  // Function to display all recipes
  function displayRecepty() {
