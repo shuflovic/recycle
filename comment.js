@@ -1,4 +1,3 @@
-
 const commentInput = document.getElementById('comments');
 const tableBody = document.getElementById('commentDataTableBody1');
 
@@ -22,8 +21,9 @@ async function loadComments() {
 }
 
 // Add new comment when user presses Enter
-commentInput.addEventListener('keypress', async (e) => {
-    if (e.key === 'Enter') {
+commentInput.addEventListener('keydown', async (e) => {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        e.preventDefault(); // Prevent default behavior (e.g., adding newline)
         const commentText = commentInput.value.trim();
         if (!commentText) return;
 
@@ -42,4 +42,3 @@ commentInput.addEventListener('keypress', async (e) => {
 
 // Load on page load
 document.addEventListener('DOMContentLoaded', loadComments);
-
