@@ -1,26 +1,15 @@
-// todo-system.js
 // Wait for Supabase to be initialized
 document.addEventListener("DOMContentLoaded", function () {
     const todoInput = document.getElementById("TDL");
     const addButton = document.getElementById("add-new-task");
-    const submitButton = document.getElementById("submitTodo");
     const todoTable = document.getElementById("guestDataTableBody1");
-
+    
     // Make sure supabaseClient is available
     if (typeof supabaseClient === 'undefined') {
         console.error('supabaseClient is not defined. Make sure supabase.js is loaded and initializes supabaseClient.');
         return;
     }
-
-    // Set placeholder text based on device
-    function setPlaceholderText() {
-        if (window.matchMedia("(max-width: 767px)").matches) {
-            todoInput.placeholder = "Type your task here"; // Mobile placeholder
-        } else {
-            todoInput.placeholder = "Enter your task"; // Desktop placeholder
-        }
-    }
-
+    
     // Load tasks from Supabase
     async function loadTasks() {
         try {
@@ -28,18 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
             const { data, error } = await supabaseClient
                 .from('to_do_list1')
                 .select('*')
-                .order('checked', { ascending: true });
-
+                .order('checked', {ascending: true});
+                
             if (error) {
                 console.error('Supabase error:', error);
                 throw error;
             }
-
+            
             console.log('Tasks loaded:', data);
-
+            
             // Clear existing table rows
             todoTable.innerHTML = '';
-
+            
             // Add each task to the table
             if (data && data.length > 0) {
                 data.forEach(task => {
@@ -52,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error loading tasks:', error);
         }
     }
-
+    
     // Save a new task to Supabase
     async function saveNewTask(taskText, isChecked = false, noteText = "") {
         try {
@@ -65,14 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     note: noteText 
                 }])
                 .select(); // Return the inserted row with its ID
-
+                
             if (error) {
                 console.error('Supabase error:', error);
                 throw error;
             }
-
+            
             console.log('Task saved:', data);
-
+            
             // Add the new task to UI with its database ID
             if (data && data.length > 0) {
                 addTaskToTable(data[0].id, taskText, isChecked, noteText);
@@ -81,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error saving new task:', error);
         }
     }
-
+    
     // Update a task in Supabase
     async function updateTask(taskId, isChecked, noteText) {
         try {
@@ -93,19 +82,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     note: noteText 
                 })
                 .eq('id', taskId);
-
+                
             if (error) {
                 console.error('Supabase error:', error);
                 throw error;
             }
-
+            
             console.log('Task updated successfully');
         } catch (error) {
             console.error('Error updating task:', error);
         }
     }
-
-    // Delete a task还不在这里写上代码的续写部分task from Supabase
+    
+    // Delete a task from Supabase
     async function deleteTask(taskId) {
         try {
             console.log('Deleting task:', taskId);
@@ -113,29 +102,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 .from('to_do_list1')
                 .delete()
                 .eq('id', taskId);
-
+                
             if (error) {
                 console.error('Supabase error:', error);
                 throw error;
             }
-
+            
             console.log('Task deleted successfully');
         } catch (error) {
             console.error('Error deleting task:', error);
         }
     }
-
+    
     // Function to add task to table
     function addTaskToTable(taskId, taskText, isChecked = false, noteText = "") {
         const newRow = document.createElement("tr");
         newRow.dataset.taskId = taskId; // Store the task ID in the row
-
+        
         // Task Column
         const taskCell = document.createElement("td");
         taskCell.textContent = taskText;
         taskCell.classList.add("task-text");
         newRow.appendChild(taskCell);
-
+        
         // Checkbox Column
         const checkboxCell = document.createElement("td");
         const checkbox = document.createElement("input");
@@ -152,16 +141,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         checkboxCell.appendChild(checkbox);
         newRow.appendChild(checkboxCell);
+        
 
-        // Note Column
-        const noteCell = document.createElement("td");
-        const noteInput = document.createElement("textarea");
-        noteInput.placeholder = "Write a note";
-        noteInput.value = noteText;
-        noteInput.classList.add("task-note");
-        noteInput.rows = 2;
-        noteInput.style.width = "100%";
-        noteInput.style.resize = "vertical";
+// Note Column
+const noteCell = document.createElement("td");
+const noteInput = document.createElement("textarea");  // Changed to textarea
+noteInput.placeholder = "Write a note";
+noteInput.value = noteText;
+noteInput.classList.add("task-note");
+noteInput.rows = 2;  // Set default number of rows
+noteInput.style.width = "100%"; // Make it use full cell width
+//noteInput.style.fontSize = "8px";
+noteInput.style.resize = "vertical";  // Allow vertical resizing only
+
+// Add to the cell
+noteCell.appendChild(noteInput);
 
         // Use 'input' to save changes in real-time
         noteInput.addEventListener("input", function() {
@@ -174,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         noteCell.appendChild(noteInput);
         newRow.appendChild(noteCell);
-
+        
         // Remove Button Column
         const removeCell = document.createElement("td");
         const removeButton = document.createElement("button");
@@ -188,11 +182,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         removeCell.appendChild(removeButton);
         newRow.appendChild(removeCell);
-
+        
         // Append row to table
         todoTable.appendChild(newRow);
     }
-
+    
     // Function to add a new task
     function addNewTask() {
         const taskText = todoInput.value.trim();
@@ -203,24 +197,17 @@ document.addEventListener("DOMContentLoaded", function () {
         todoInput.value = ""; // Clear input field
     }
 
-    // Add new task on button click (existing add-new-task button)
-    addButton.addEventListener("click", addNewTask);
-
-    // Add new task on submit button click (mobile-only)
-    submitButton.addEventListener("click", addNewTask);
+    // Add new task on button click
+   // addButton.addEventListener("click", addNewTask);
 
     // Add new task when Enter key is pressed in the input field
-    todoInput.addEventListener("keydown", function(event) {
-        if (event.key === "Enter" || event.keyCode === 13) {
-            event.preventDefault(); // Prevent form submission or newline
+    todoInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent form submission if within a form
             addNewTask();
         }
     });
 
-    // Load tasks and set placeholder on page load
+    // Load tasks immediately
     loadTasks();
-    setPlaceholderText();
-
-    // Update placeholder on window resize
-    window.addEventListener('resize', setPlaceholderText);
 });
