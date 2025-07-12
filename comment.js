@@ -42,3 +42,19 @@ commentInput.addEventListener('keydown', async (e) => {
 
 // Load on page load
 document.addEventListener('DOMContentLoaded', loadComments);
+
+document.getElementById('submitComment').addEventListener('click', async () => {
+    const commentText = commentInput.value.trim();
+    if (!commentText) return;
+
+    const { data, error } = await supabaseClient
+        .from('comments')
+        .insert([{ name: 'Anonymous', comment: commentText }]);
+
+    if (error) {
+        console.error('Failed to add comment:', error);
+    } else {
+        commentInput.value = '';
+        loadComments();
+    }
+});
